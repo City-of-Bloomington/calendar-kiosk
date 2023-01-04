@@ -1,5 +1,36 @@
+{#
+ * @copyright 2023 City of Bloomington, Indiana
+ * @license https://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE
+ * @param array events
+ * @see https://developers.google.com/calendar/api/v3/reference/events/list
+#}
 {% extends "html/layouts/default.twig" %}
 
 {% block content %}
 <h1>{{ _('home') }}</h1>
+
+{% for date, ids in events %}
+    {% for event_id, event in ids %}
+    <article>
+        <header>
+            <time datetime="{{ event.start }}">
+                <span class="month"    >{{ event.start | date('M')}}</span>
+                <span class="monthDate">{{ event.start | date('j')}}</span>
+                <span class="weekday"  >{{ event.start | date('l')}}</span>
+            </time>
+        </header>
+        <div>
+            <time datetime="{{ event.start }}">
+                {{  event.start | date('g:ia') }}
+                {% if event.end %}
+                to {{ event.end | date('g:ia') }}
+                {% endif %}
+            </time>
+            <div class="summary" >{{ event.summary  }}</div>
+            <div class="location">{{ event.location }}</div>
+        </div>
+    </article>
+    {% endfor %}
+{% endfor %}
+
 {% endblock %}

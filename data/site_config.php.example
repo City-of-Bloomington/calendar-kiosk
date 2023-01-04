@@ -25,6 +25,7 @@ define('BASE_URL' , "$_SERVER[REQUEST_SCHEME]://".BASE_HOST.BASE_URI);
 
 define('GOOGLE_CREDENTIALS_FILE', __DIR__.'/credentials.json');
 define('GOOGLE_USER_EMAIL', 'user@localhost');
+define('GOOGLE_CALENDAR_ID', 'someoe@google.com');
 
 
 /**

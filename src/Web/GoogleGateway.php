@@ -12,9 +12,6 @@ class GoogleGateway
         static $client = null;
 
         if (!$client) {
-            $config = \Drupal::config('calendar.settings');
-            $GOOGLE_USER_EMAIL = $config->get('google_user_email');
-
             $client = new \Google_Client();
             $client->setAuthConfig(GOOGLE_CREDENTIALS_FILE);
             $client->setScopes([\Google_Service_Calendar::CALENDAR_READONLY]);
