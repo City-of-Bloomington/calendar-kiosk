@@ -23,7 +23,6 @@ foreach (array_keys($ROUTES->getMap()->getRoutes()) as $r) {
     }
 }
 // Permissions for unauthenticated browsing
-$ACL->allow(null, 'login');
 $ACL->allow(null, 'home', 'index');
 
 $ACL->allow('Administrator');
