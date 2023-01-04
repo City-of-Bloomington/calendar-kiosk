@@ -20,36 +20,23 @@ if ($route) {
     $controller = $route->handler;
     $c = new $controller($DI);
     if (is_callable($c)) {
-        $user = Auth::getAuthenticatedUser($DI->get('Web\Authentication\AuthenticationService'));
-        if (Auth::isAuthorized($route->name, $user)) {
-            // Convenience:
-            // Most of our applications are just basic form processing.
-            // Thus, the controllers typically read directly from the PHP
-            // global SERVER variables.
-            //
-            // 'id' is the standard name for primary key in tables.
-            // Most routes, by default, allow for a fancy treatment of {id} in the URL.
-            // If it the id param comes from the route handling, we copy
-            // it to the PHP Server variables, so we don't have to have
-            // special parameter handling code for the common case of checking
-            // for an id parameter.
-            if (!empty($route->attributes['id'])) {
-                    $_GET['id'] = $route->attributes['id'];
-                $_REQUEST['id'] = $route->attributes['id'];
-            }
+        // Convenience:
+        // Most of our applications are just basic form processing.
+        // Thus, the controllers typically read directly from the PHP
+        // global SERVER variables.
+        //
+        // 'id' is the standard name for primary key in tables.
+        // Most routes, by default, allow for a fancy treatment of {id} in the URL.
+        // If it the id param comes from the route handling, we copy
+        // it to the PHP Server variables, so we don't have to have
+        // special parameter handling code for the common case of checking
+        // for an id parameter.
+        if (!empty($route->attributes['id'])) {
+                $_GET['id'] = $route->attributes['id'];
+            $_REQUEST['id'] = $route->attributes['id'];
+        }
 
-            $view = $c($route->attributes);
-        }
-        else {
-            if     ( isset($_SESSION['USER'])
-                || (!empty($_REQUEST['format']) && $_REQUEST['format'] != 'html')) {
-                $view = new \Web\Views\ForbiddenView();
-            }
-            else {
-                header('Location: '.\Web\View::generateUrl('login.login'));
-                exit();
-            }
-        }
+        $view = $c($route->attributes);
     }
     else {
         $f = $matcher->getFailedRoute();
