@@ -18,3 +18,20 @@
 .modified {
     th, td { background-color: $color-alert; }
 }
+
+article {
+    display:grid;
+    grid-template-columns: $size-grid $size-grid  $size-grid;
+
+    header {
+        grid-column: 2;
+    }
+    
+    time {
+        grid-column: 1;
+    }
+    
+    .location {
+        grid-column: 3;
+    }
+}

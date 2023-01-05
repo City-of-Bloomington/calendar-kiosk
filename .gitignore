@@ -7,3 +7,4 @@ data/sessions/*
 *.css*
 *.mo
 
+.DS_Store
