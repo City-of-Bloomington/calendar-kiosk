@@ -4,13 +4,12 @@
  * @param array events
  * @see https://developers.google.com/calendar/api/v3/reference/events/list
 #}
+
 {% extends "html/layouts/default.twig" %}
-
 {% block content %}
-
-{# <h1>{{ _('home') }}</h1> #}
 <header>
-    <h1 id="col1">Public Meetings Calendar</h1>
+    <h1 id="col1">Public Meetings</h1>
+    {# Have Today's Date pull here #}
     <div class="date"> <h2 class="weekday">{  }</h2></div>
     <div><span>Box with QR code</span></div>
 </header>
@@ -20,11 +19,9 @@
     <h2>Event</h2>
     <h2>Location</h2>
     </header>
-
 {% for date, ids in events %}
     {% for event_id, event in ids %}
-    
-    <article>
+    <article> 
         <time datetime="{{ event.start }}">
                 <h2>
                 {{  event.start | date('g:ia') }}
@@ -38,9 +35,7 @@
         </header>
         <p class="location">{{ event.location }}</p>
     </article>
-
     {% endfor %}
 {% endfor %}
 </section>
-
 {% endblock %}

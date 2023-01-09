@@ -38,6 +38,10 @@ article,main > header,section > header {
     //indicate font size here
 }
 
+article {
+    grid-template-rows: 40px 4em 40px;
+}
+
 article:nth-child(even) {
     background-color: $silver; 
   }
