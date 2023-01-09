@@ -8,3 +8,6 @@ data/sessions/*
 *.mo
 
 .DS_Store
+data/credentials.json
+docker/credentials.json
+public/COB

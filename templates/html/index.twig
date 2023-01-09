@@ -7,29 +7,40 @@
 {% extends "html/layouts/default.twig" %}
 
 {% block content %}
-<h1>{{ _('home') }}</h1>
 
-
+{# <h1>{{ _('home') }}</h1> #}
+<header>
+    <h1 id="col1">Public Meetings Calendar</h1>
+    <div class="date"> <h2 class="weekday">{  }</h2></div>
+    <div><span>Box with QR code</span></div>
+</header>
+<section>
+    <header>
+    <h2 id="col1">Time</h2>
+    <h2>Event</h2>
+    <h2>Location</h2>
+    </header>
 
 {% for date, ids in events %}
     {% for event_id, event in ids %}
     
     <article>
-        <header>
-        <h2>{{ event.summary  }}</h2>
-        </header>
-            <time datetime="{{ event.start }}">
+        <time datetime="{{ event.start }}">
+                <h2>
                 {{  event.start | date('g:ia') }}
                 {% if event.end %}
                 to {{ event.end | date('g:ia') }}
                 {% endif %}
-            </time>
-            
-            <div class="location">{{ event.location }}</div>
-        
+                </h2>
+        </time>
+        <header>
+            <h2>{{ event.summary }}</h2>
+        </header>
+        <p class="location">{{ event.location }}</p>
     </article>
 
     {% endfor %}
 {% endfor %}
+</section>
 
 {% endblock %}

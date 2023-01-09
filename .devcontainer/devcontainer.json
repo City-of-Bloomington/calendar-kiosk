@@ -1,0 +1,62 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/php
+{
+	"name": "calendar-kiosk-devcontainer",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	
+	"build": {
+        // Path is relataive to the devcontainer.json file.
+        "dockerfile": "devContainer-Dockerfile"
+    },
+
+
+	"mounts": [
+		// Create binds for the config files without modifying the original source
+		// this leaves behind empty files due to docker desktop not supporting mount propagation.
+		// TODO: there may be a better way to do this?
+		{
+			"source": "${localWorkspaceFolder}/docker/site_config.php",
+			"target": "${containerWorkspaceFolder}/data/site_config.php",
+			"type": "bind"
+		},
+		{
+			"source": "${localWorkspaceFolder}/docker/credentials.json",
+			"target": "${containerWorkspaceFolder}/data/credentials.json",
+			"type": "bind"
+		},
+
+		// On drifter this is a symlink, will need to ask Cliff why it's set up that way.
+		// Create a bind only when the dev container is active, to avoid interfering with the source.
+		// I also added the location to .gitignore just in case.
+		{
+			"source": "${localWorkspaceFolder}/data/Themes/COB/public/",
+			"target": "${containerWorkspaceFolder}/public/COB/",
+			"type": "bind"
+		}
+
+	],
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [80],
+
+	"onCreateCommand": "",
+	"updateContentCommand": "",
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	//"postCreateCommand": "",
+
+	"postStartCommand": ""
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+	
+	//"containerEnv": {
+    //    "SITE_HOME": "./data"
+    // }
+}

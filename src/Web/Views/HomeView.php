@@ -14,7 +14,7 @@ class HomeView extends View
     public function __construct(Events $events)
     {
         parent::__construct();
-
+        
         foreach ($events as $e) {
             if ($e->start->dateTime) {
                 $allDay = false;
