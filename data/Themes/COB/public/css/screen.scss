@@ -2,8 +2,8 @@
 @import 'scss/vars';
 
 @import 'scss/html-elements';
-@import 'scss/layout';
-@import 'scss/header';
+// @import 'scss/layout';
+// @import 'scss/header';
 
 #panel-one {
     nav { border: 1px solid black; margin-bottom: $size-gutter; }
@@ -27,7 +27,7 @@ body {
 
 section {
     background-color: $white;
-    border: $setion-border;
+    border: $section-border;
     border-radius: $section-border-radius;
     box-shadow: $section-shadow;
 }
@@ -45,27 +45,4 @@ article:nth-child(even) {
 time,#col1 {
     margin-left: $left-content-margin;
 }
-
-// article {
-//     display:grid;
-//     grid-template-columns: $size-grid $size-grid $size-grid;
-
-//     header {
-//         grid-column: 2;
-//     }
-    
-//     time {
-//         grid-column: 1;
-//     }
-    
-//     .location {
-//         grid-column: 3;
-//     }
-  
-// }
-
-// article:nth-child(odd) {
-//     background-color: #ccc; 
-
-// }
 
