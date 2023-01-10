@@ -41,7 +41,7 @@ article,main > header,section > header {
 
 article {
     grid-template-rows: 40px 4em 40px;
-    padding: 10px 50px 20px;
+    padding: 10px 1px 20px;
 }
 
 article:nth-child(even) {
@@ -53,6 +53,6 @@ time,#col1 {
 }
 
 .location {
-    font-size: $font-size-bigger;
+    font-size: $font-size-big;
 }
 
