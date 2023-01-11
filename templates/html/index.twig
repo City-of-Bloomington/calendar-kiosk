@@ -8,17 +8,17 @@
 {% extends "html/layouts/default.twig" %}
 {% block content %}
 <header>
-    <h1 id="col1">Public Meetings</h1>
-    
+    <h1  class="col1">Public Meetings</h1>
     <div class="date"> <h2 class="weekday">{{ "now"|date("l, F jS") }}</h2></div>
-    
-    <div><span>Box with QR code</span></div>
+    <div class="qrcode">
+        <img src="{{ BASE_URI }}/qr-code.png" />
+    </div>
 </header>
 <section>
     <header>
-    <h2 id="col1">Time</h2>
-    <h2>Event</h2>
-    <h2>Location</h2>
+        <h2 class="col1">Time</h2>
+        <h2>Event</h2>
+        <h2>Location</h2>
     </header>
 {% for date, ids in events %}
     {% for event_id, event in ids %}
