@@ -1,8 +1,9 @@
 /**
  * Urls are relative to screen.css
  */
-$url-logo: "../images/logo.svg";
-$url-header-background: "";
+$url-logo: "../images/cob-logo-horizontal.svg";
+$url-logo-height: 55px;
+$url-logo-width: 233px;
 
 $serif: serif;
 $sans:  sans-serif;
@@ -27,7 +28,7 @@ $font-size-small:   12px;
 // Foreground colors
 $color-text-default:       $mine-shaft;
 $color-text-secondary:     $silver-chalice;
-$color-link:               $biscay;
+$color-link:               $cob-blue;
 $color-heading:            $mine-shaft;
 $color-divider:            $silver;
 
@@ -35,8 +36,8 @@ $color-divider:            $silver;
 $color-content-background:  $white;
 $color-selected-background: $havelock-blue;
 
-$color-nav1:                $biscay;
-$color-header:              $biscay;
+$color-nav1:                $cob-blue;
+$color-header:              $cob-blue;
 $color-header-border:       $azure;
 $color-footer:              $dark-slate;
 $color-error:               $sunglo;
