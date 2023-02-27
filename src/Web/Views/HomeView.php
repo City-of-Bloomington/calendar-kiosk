@@ -29,6 +29,14 @@ class HomeView extends View
 
             $date     = $eventStart->format('Y-m-d');
             $event_id = $e->id;
+            
+            //$location
+            $location       = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP),$e->location);
+            $matches        = [];
+            preg_match('/https:\/\/bloomington\.zoom\.us\/.\/\d+\?pwd=\w+/',$e->summary,$matches);
+            if  ($matches) {
+                $location.= " <a href=\"$matches[0]\">Join Zoom</a>";
+            }
 
             $meetings[$date][$event_id] = [
                 'eventId'  => $e->id,
