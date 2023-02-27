@@ -27,6 +27,14 @@ define('GOOGLE_CREDENTIALS_FILE', __DIR__.'/credentials.json');
 define('GOOGLE_USER_EMAIL', 'user@localhost');
 define('GOOGLE_CALENDAR_ID', 'someoe@google.com');
 
+$LOCATION_MAP = [
+    // Google Calendar Resource Name   => Human Readable Location
+    '|^.+Atrium.+$|'                                      => '401 N Morton ST',
+    '|^.+Council Chambers.+$|'                            => '401 N Morton ST',
+    '|^.+Kelly Conference Room.+$|'                       => '401 N Morton ST',
+    '|^.+Lemon Conference Room.+$|'                       => '401 N Morton ST',
+    '|^.+McCloskey Conference Room.+$|'                   => '401 N Morton ST',
+];
 
 /**
  * Specify the theme directory

@@ -55,5 +55,15 @@ time, .col1 {
 
 .location {
     font-size: $font-size-big;
+    a {
+        text-decoration: none;
+        display: inline-block;
+        background-color: $color-action;
+        color: $color-content-background;
+        font-weight: bold;
+        border: 2px solid $color-border-input;
+        border-radius: $size-gutter*2;
+        padding: 0 $size-gutter;
+    }
 }
 
