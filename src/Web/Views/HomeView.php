@@ -13,6 +13,7 @@ class HomeView extends View
 {
     public function __construct(Events $events)
     {
+        GLOBAL $LOCATION_MAP;
         parent::__construct();
         
         foreach ($events as $e) {
@@ -33,18 +34,21 @@ class HomeView extends View
             //$location
             $location       = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP),$e->location);
             $matches        = [];
-            preg_match('/https:\/\/bloomington\.zoom\.us\/.\/\d+\?pwd=\w+/',$e->summary,$matches);
+            $zoomLink       = "";
+            preg_match('/https:\/\/bloomington\.zoom\.us\/.\/\d+\?pwd=\w+/',$e->description??"",$matches);
             if  ($matches) {
-                $location.= " <a href=\"$matches[0]\">Join Zoom</a>";
+                $zoomLink = $matches[0];
             }
 
             $meetings[$date][$event_id] = [
-                'eventId'  => $e->id,
-                'summary'  => $e->summary,
-                'location' => $e->location,
-                'start'    => $eventStart->format('c'),
-                'end'      => $eventEnd  ->format('c'),
-                'htmlLink' => $e->htmlLink
+                'eventId'     => $e->id,
+                'summary'     => $e->summary,
+                'description' => $e->description,
+                'location'    => $location,
+                'zoomLink'    => $zoomLink,
+                'start'       => $eventStart->format('c'),
+                'end'         => $eventEnd  ->format('c'),
+                'htmlLink'    => $e->htmlLink
             ];
         }
         $this->vars = ['events' => $meetings];

@@ -24,17 +24,22 @@
     {% for event_id, event in ids %}
     <article> 
         <time datetime="{{ event.start }}">
-                <h2>
+            <h2>
                 {{  event.start | date('g:ia') }}
                 {% if event.end %}
                 to {{ event.end | date('g:ia') }}
                 {% endif %}
-                </h2>
+            </h2>
         </time>
         <header>
             <h2>{{ event.summary }}</h2>
         </header>
-        <p class="location">{{ event.location }}</p>
+        <p class="location">
+            {{ event.location }}
+            {% if event.zoomLink %}
+            <a href="{{ event.zoomLink }}">Join Zoom</a>
+            {% endif %}
+        </p>
     </article>
     {% endfor %}
 {% endfor %}
