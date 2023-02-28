@@ -1,27 +1,30 @@
+a { text-decoration: none; }
+
 body > header {
+    display: grid;
+    grid-template-columns: 260px 1fr 260px;
+
     background-color: $color-content-background;
     border-top: $size-gutter solid $color-header;
     color: $color-header;
     padding-top:$size-gutter; padding-left:$size-gutter;
 
-    background: url($url-logo) no-repeat left center;
+    background: url($url-logo) no-repeat top left;
     background-size: $url-logo-width $url-logo-height;
-    height: $url-logo-height;
     text-align: center;
+    overflow: auto;
+
+    div { grid-column: 2; }
+    img { grid-column: 3; display: block; }
 
     a {
         color: $color-header;
         font-family: $font-family-nav;
     }
 
-    h1 {
-        display: inline-block;
+    h1, h2 {
         margin: 0;
-        vertical-align: middle;
-    }
-    h1 a {
-        margin-left: $size-gutter;
-        font-size:$font-size-bigger; font-weight: normal;
+        text-align: center;
     }
 }
 

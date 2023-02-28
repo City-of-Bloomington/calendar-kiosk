@@ -1,10 +1,5 @@
-// @import 'scss/reset';
 @import 'scss/vars';
 @import 'scss/header';
-
-// @import 'scss/html-elements';
-// @import 'scss/layout';
-// @import 'scss/header';
 
 #panel-one {
     nav { border: 1px solid black; margin-bottom: $size-gutter; }
@@ -27,17 +22,23 @@ body {
 }
 
 section {
-    background-color: $white;
-    border: $section-border;
+    background-color: $color-content-background;
+    border:        $section-border;
     border-radius: $section-border-radius;
-    box-shadow: $section-shadow;
+    box-shadow:    $section-shadow;
     margin-top: 10px;
+
+    > header {
+        background-color: $color-header;
+        color: $color-content-background;
+    }
 }
 
-article,main > header,section > header {
-    display:grid;
+article,
+main > header,
+section > header {
+    display: grid;
     grid-template-columns: $size-grid  $size-grid $size-grid;
-    //indicate font size here
 }
 
 article {
@@ -49,12 +50,13 @@ article:nth-child(even) {
     background-color: $silver; 
   }
 
-time, .col1 {
+time {
     margin-left: $left-content-margin;
 }
 
 .location {
     font-size: $font-size-big;
+    white-space: pre-line;
     a {
         text-decoration: none;
         display: inline-block;
@@ -62,7 +64,7 @@ time, .col1 {
         color: $color-content-background;
         font-weight: bold;
         border: 2px solid $color-border-input;
-        border-radius: $size-gutter*2;
+        border-radius: 2 * $size-gutter;
         padding: 0 $size-gutter;
     }
 }
