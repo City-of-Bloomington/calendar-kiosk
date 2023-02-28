@@ -17,16 +17,16 @@
 
 body {
     font-family: $sans;
-    background-color: $body-background;
-    margin: $body-margin;
+    background-color: $color-content-background;
+    margin: 0;
 }
 
 section {
     background-color: $color-content-background;
-    border:        $section-border;
-    border-radius: $section-border-radius;
-    box-shadow:    $section-shadow;
-    margin-top: 10px;
+    border:        2px solid $color-divider;
+    border-radius: $size-gutter;
+    box-shadow:    0 0.2rem 0.9rem 0 rgba(0, 0, 0, 0.05);
+    margin-top:    2 * $size-gutter;
 
     > header {
         background-color: $color-header;
@@ -38,7 +38,7 @@ article,
 main > header,
 section > header {
     display: grid;
-    grid-template-columns: $size-grid  $size-grid $size-grid;
+    grid-template-columns: repeat(3, 320px);
 }
 
 article {
@@ -47,11 +47,11 @@ article {
 }
 
 article:nth-child(even) {
-    background-color: $silver; 
-  }
+    background-color: $color-table-background-alt;
+}
 
 time {
-    margin-left: $left-content-margin;
+    margin-left: 2 * $size-gutter;
 }
 
 .location {
@@ -68,4 +68,3 @@ time {
         padding: 0 $size-gutter;
     }
 }
-
