@@ -1,9 +1,6 @@
 a { text-decoration: none; }
 
 body > header {
-    display: grid;
-    grid-template-columns: 260px 1fr 260px;
-
     background-color: $color-content-background;
     border-top: $size-gutter solid $color-header;
     color: $color-header;
@@ -13,28 +10,12 @@ body > header {
     background-size: $url-logo-width $url-logo-height;
     text-align: center;
     overflow: auto;
-
-    div { grid-column: 2; }
-    img { grid-column: 3; display: block; }
-
     a {
         color: $color-header;
         font-family: $font-family-nav;
     }
-
     h1, h2 {
         margin: 0;
         text-align: center;
-    }
-}
-
-#nav1 {
-    height: 2rem;
-    display: flex; align-items: center;
-    background-color: $color-header;
-    a {
-        font-weight: bold;
-        color: $color-content-background;
-        margin: $size-gutter;
     }
 }
