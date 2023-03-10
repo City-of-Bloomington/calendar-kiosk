@@ -1,19 +1,13 @@
 // Mobile + Tablet
 body > header {
-    img{
-        display: none;
-    }
+    img{ display: none; }
     padding-top: $url-logo-height + $size-gutter;
 }
-section > header {
-    display: none;
-}
+section > header { display: none; }
 
 article {
     padding: 0 $size-gutter $size-gutter;
-    h2 {
-        margin-top:0;
-    }
+    h2 { margin-top:0; }
 }
 
 // Desktop
@@ -41,6 +35,6 @@ article {
 // Kiosk View
 @media (min-width: 1080px) and (orientation: portrait) {
      article .location a {
-           display:none; 
+           display: none;
     }
 }

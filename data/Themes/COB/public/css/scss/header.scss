@@ -1,15 +1,17 @@
 a { text-decoration: none; }
 
 body > header {
+    color:            $color-header;
     background-color: $color-content-background;
-    border-top: $size-gutter solid $color-header;
-    color: $color-header;
-    padding-top:$size-gutter; padding-left:$size-gutter;
+    border-top:   $size-gutter solid $color-header;
+    padding-top:  $size-gutter;
+    padding-left: $size-gutter;
 
     background: url($url-logo) no-repeat top left;
     background-size: $url-logo-width $url-logo-height;
     text-align: center;
     overflow: auto;
+
     a {
         color: $color-header;
         font-family: $font-family-nav;
