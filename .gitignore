@@ -6,8 +6,8 @@ data/sessions/*
 *.cache
 *.css*
 *.mo
-
 .DS_Store
 data/credentials.json
 docker/credentials.json
 public/COB
+make.conf
