@@ -9,5 +9,4 @@ data/sessions/*
 public/COB
 .sass-cache
 .devcontainer
-docker/
 data/credentials.json
