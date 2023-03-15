@@ -2,9 +2,7 @@
 @import 'scss/header';
 @import 'scss/layout';
 
-#errorMessages {
-    background-color: $color-error;
-}
+#errorMessages { background-color: $color-error; }
 
 .modified {
     th, td { background-color: $color-alert; }
@@ -12,8 +10,10 @@
 
 body {
     font-family: $sans;
-    background-color: $color-content-background;
+    background-color: #000;
     margin: 0;
+
+    > header { background-color:  $color-content-background; }
 }
 
 section {
@@ -29,14 +29,8 @@ section {
     }
 }
 
-
-
 article:nth-child(even) {
     background-color: $color-table-background-alt;
-}
-
-time {
-    margin-left: 2 * $size-gutter;
 }
 
 .location {

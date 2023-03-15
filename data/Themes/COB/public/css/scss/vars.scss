@@ -59,8 +59,7 @@ $color-table-header-background:    $biscay;
 
 $color-shadow: rgba(0, 0, 0, 0.5);
 
-$viewport-small:   (350px);
-$viewport-medium:  (640px);
-$viewport-large:  (1080px);
-
 $size-gutter: 4px;
+$size-viewport-mobile: 350px;
+$size-viewport-large: 1080px;
+$size-viewport-kiosk: 2160px;

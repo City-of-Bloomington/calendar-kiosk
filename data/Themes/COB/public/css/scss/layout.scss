@@ -5,36 +5,26 @@ body > header {
 }
 section > header { display: none; }
 
+p { margin-top: 0; }
+
 article {
     padding: 0 $size-gutter $size-gutter;
     h2 { margin-top:0; }
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; justify-content: space-around;
+
+    time, header, p { min-width: $size-viewport-mobile; }
 }
 
-// Desktop
-@media (min-width: 1080px) {
-    article,
-    main > header,
-    section > header {
-        display: grid;
-        grid-template-columns: repeat(3, 320px);
-    }
-
-    article {
-        grid-template-rows: 40px 4em 40px;
-        padding: 10px 1px 20px;
-    }
-
+@media (min-width: $size-viewport-kiosk) {
     body > header {
-        display: grid;
-        grid-template-columns: 260px 1fr 260px;
-    div { grid-column: 2; }
-        img { grid-column: 3; display: block; }
+        height: $url-logo-width;
+        img {
+            display: block; width: $url-logo-width;
+            position: absolute; top: $size-gutter; right: $size-gutter;
+        }
     }
 }
 
-// Kiosk View
-@media (min-width: 1080px) and (orientation: portrait) {
-     article .location a {
-           display: none;
-    }
-}

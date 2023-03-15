@@ -8,11 +8,6 @@
 {% extends "html/layouts/default.twig" %}
 {% block content %}
 <section>
-    <header>
-        <h2 class="col1">Time</h2>
-        <h2>Event</h2>
-        <h2>Location</h2>
-    </header>
 {% for date, ids in events %}
     {% for event_id, event in ids %}
     <article> 
