@@ -18,7 +18,7 @@ article {
     time, header, p { min-width: $size-viewport-mobile; }
 }
 
-@media (min-width: $size-viewport-kiosk) {
+@media (width: 1080px) and (height: 1920px) {
     body > header {
         height: $url-logo-width;
         img {
