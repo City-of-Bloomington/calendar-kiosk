@@ -1,12 +1,7 @@
-/**
- * Urls are relative to screen.css
- */
-$url-logo: "../images/cob-logo-horizontal.svg";
-$url-logo-height: 55px;
-$url-logo-width: 233px;
+@font-face { font-family: 'Roboto'; src: url('../Roboto/Roboto-Regular.ttf'); }
 
 $serif: serif;
-$sans:  sans-serif;
+$sans:  'Roboto';
 
 // Fonts
 $font-family-default: $sans;

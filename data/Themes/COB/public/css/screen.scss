@@ -1,12 +1,5 @@
 @import 'scss/vars';
 @import 'scss/header';
-@import 'scss/layout';
-
-#errorMessages { background-color: $color-error; }
-
-.modified {
-    th, td { background-color: $color-alert; }
-}
 
 body {
     font-family: $sans;
@@ -22,13 +15,18 @@ section {
     border-radius: $size-gutter;
     box-shadow:    0 0.2rem 0.9rem 0 rgba(0, 0, 0, 0.05);
     margin-top:    2 * $size-gutter;
-
-    > header {
-        background-color: $color-header;
-        color: $color-content-background;
-    }
 }
 
+article {
+    padding: 0 $size-gutter $size-gutter;
+    h2 { margin-top:0; }
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; justify-content: space-around;
+
+    time, header, p { width: $size-viewport-mobile; }
+}
 article:nth-child(even) {
     background-color: $color-table-background-alt;
 }
@@ -47,3 +45,8 @@ article:nth-child(even) {
         padding: 0 $size-gutter;
     }
 }
+@media (width: 1080px) and (height: 1920px) {
+    article .location a { display: none; }
+}
+
+p { margin-top: 0; }

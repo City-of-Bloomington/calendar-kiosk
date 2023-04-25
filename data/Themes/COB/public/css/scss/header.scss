@@ -1,16 +1,24 @@
+$size-logo-width: 233px;
+$size-logo-height: 55px;
+$size-logo-margin: 28px;
+
 a { text-decoration: none; }
 
 body > header {
-    color:            $color-header;
-    background-color: $color-content-background;
     border-top:    $size-gutter solid $color-header;
     border-bottom: $size-gutter solid $color-header;
+    color: $color-header;
+    padding-top:  $size-logo-margin;
+    padding-left: $size-logo-margin;
+//    height: $size-logo-margin + $size-logo-height;
 
-    padding-top:  $size-gutter;
+    background: url('../images/cob-logo-horizontal.svg') no-repeat top $size-logo-margin left $size-logo-margin;
+    background-size: $size-logo-width $size-logo-height;
+    background-color: $color-content-background;
+
+    padding-top:  $size-gutter + $size-logo-height + $size-logo-margin;
     padding-left: $size-gutter;
 
-    background: url($url-logo) no-repeat top left;
-    background-size: $url-logo-width $url-logo-height;
     text-align: center;
     overflow: auto;
 
@@ -22,4 +30,17 @@ body > header {
         margin: 0;
         text-align: center;
     }
+    img { display: none; }
 }
+@media (width: 1080px) and (height: 1920px) {
+    body > header {
+        padding-top: $size-logo-margin;
+        height: $size-logo-width - $size-logo-margin;
+        img {
+            display: block; width: $size-logo-width;
+            position: absolute; top: $size-gutter; right: $size-gutter;
+        }
+    }
+    article .location a { display: none; }
+}
+
