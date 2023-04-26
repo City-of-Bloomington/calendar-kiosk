@@ -4,14 +4,22 @@
 
 body {
     font-family: $sans;
-    background-color: $color-header;
+    background-color: $color-content-background;
     margin: 0;
 
     > header { background-color:  $color-content-background; }
+    > footer { 
+        background: center url("../images/cob-logo-horizontal-invert.svg") no-repeat; 
+        background-size: contain; 
+        position: fixed; 
+        left: 0; 
+        bottom: 10px; 
+        width: 100%;
+        padding-bottom: 100px; }
 }
 
 section {
-    background-color: $color-content-background;
+    background-color: $color-header;
     border:        2px solid $color-divider;
     border-radius: $size-gutter;
     box-shadow:    0 0.2rem 0.9rem 0 rgba(0, 0, 0, 0.05);
@@ -47,6 +55,7 @@ article:nth-child(even) {
     }
 }
 @media (width: 1080px) and (height: 1920px) {
+    body {overflow: none;}
     article .location a { display: none; }
 }
 
