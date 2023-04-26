@@ -13,9 +13,9 @@
     <article> 
         <time datetime="{{ event.start }}">
             <h2>
-                {{  event.start | date('g:ia') }}
+                {{  event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
                 {% if event.end %}
-                to {{ event.end | date('g:ia') }}
+                to {{ event.end | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
                 {% endif %}
             </h2>
         </time>
