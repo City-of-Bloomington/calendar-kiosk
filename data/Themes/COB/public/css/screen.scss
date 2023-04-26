@@ -55,7 +55,7 @@ article:nth-child(even) {
     }
 }
 @media (width: 1080px) and (height: 1920px) {
-    body {overflow: none;}
+    body {overflow: hidden;}
     article .location a { display: none; }
 }
 
