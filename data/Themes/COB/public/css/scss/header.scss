@@ -5,14 +5,14 @@ $size-logo-margin: 28px;
 a { text-decoration: none; }
 
 body > header {
-    border-top:    $size-gutter solid $color-header;
-    border-bottom: $size-gutter solid $color-header;
+    border-top:    $size-gutter solid $color-content-background;
+    border-bottom: $size-gutter solid $color-content-background;
     color: $color-header;
     padding-top:  $size-logo-margin;
     padding-left: $size-logo-margin;
 //    height: $size-logo-margin + $size-logo-height;
 
-    background: url('../images/cob-logo-horizontal.svg') no-repeat top $size-logo-margin left $size-logo-margin;
+    // background: url('../images/cob-logo-horizontal.svg') no-repeat top $size-logo-margin left $size-logo-margin;
     background-size: $size-logo-width $size-logo-height;
     background-color: $color-content-background;
 
