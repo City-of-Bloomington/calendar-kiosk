@@ -59,12 +59,16 @@ article:nth-child(even) {
 
 p { margin-top: 0; }
 
-$size-qrcode-width: 233px;
+$size-qrcode-width: 200px;
 $size-logo-height:  100px;
+$size-logo-margin:   20px;
+
 footer {
-    background: center url("../images/cob-logo-horizontal-invert.svg") no-repeat;
-    background-size: contain;
-    width: 100%; height: $size-logo-height;
+    background: url("../images/cob-logo-horizontal-invert.svg") no-repeat center bottom $size-logo-margin;
+    background-size: auto $size-logo-height;
+
+    width: 100%;
+    height: $size-logo-height + $size-logo-margin;
 }
 
 @media (width: 1080px) and (height: 1920px) {
@@ -72,9 +76,22 @@ footer {
 
     body > header {
         height: $size-qrcode-width;
+        padding: $size-logo-margin;
+
+        div {
+            display: block;
+            width: 1080 - $size-qrcode-width - (2 * $size-logo-margin);
+            padding-top: 58px;
+
+        }
+
+        h1 { font-size: $font-size-huge;  font-weight: bold; }
+        h2 { font-size: $font-size-biggest; }
+
         img {
-            display: block; width: $size-qrcode-width;
-            position: absolute; top: $size-gutter; right: $size-gutter;
+            display: block;
+            width: $size-qrcode-width;
+            position: absolute; top: $size-logo-margin; right: $size-logo-margin;
         }
     }
     article .location a { display: none; }
