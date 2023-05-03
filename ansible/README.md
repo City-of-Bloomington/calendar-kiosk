@@ -3,7 +3,7 @@ Ansible
 This playbook installs the calendar-kiosk.
 
 
-This assume some familiarity with the Ansible configuration management system and that you have an ansible control machine configured.  Before running the playbook, you must first have a tarball of the calendar-kiosk that was previously built.  There is a Makefile in the project root.
+This assumes some familiarity with the Ansible configuration management system and that you have an ansible control machine configured.  Before running the playbook, you must first have a tarball of the calendar-kiosk that was previously built.  There is a Makefile in the project root.
 
 Dependencies
 -------------
@@ -17,7 +17,6 @@ or for development:
 ```
 git clone https://github.com/City-of-Bloomington/ansible-role-linux.git  ./roles/City-of-Bloomington.linux
 git clone https://github.com/City-of-Bloomington/ansible-role-apache.git ./roles/City-of-Bloomington.apache
-git clone https://github.com/City-of-Bloomington/ansible-role-mysql.git  ./roles/City-of-Bloomington.mysql
 git clone https://github.com/City-of-Bloomington/ansible-role-php.git    ./roles/City-of-Bloomington.php
 etc
 ```
