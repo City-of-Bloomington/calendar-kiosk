@@ -26,22 +26,20 @@
         mode:  "u=rwX,g=rwXs,o=rX"
       with_items:
         - "{{ calendar_kiosk_install_path }}"
-        - "{{ calendar_kiosk_backup_path  }}"
         - "{{ calendar_kiosk_site_home    }}"
-        - "/var/log/cron"
 
     - name: "Install release"
-      command: "rsync -rl /usr/local/src/calendar_kiosk/ {{ calendar_kiosk_install_path }}/"
+      command: "rsync -rl /usr/local/src/calendar-kiosk/ {{ calendar_kiosk_install_path }}/"
       when: "release.changed"
 
     - name: "Update site_home"
-      command: "rsync -rl /usr/local/src/calendar_kiosk/data/ {{ calendar_kiosk_site_home }}/"
+      command: "rsync -rl /usr/local/src/calendar-kiosk/data/ {{ calendar_kiosk_site_home }}/"
       when: "release.changed"
 
     - name: "Apache configuration"
       template:
         src:  "apache.conf"
-        dest: "/etc/apache2/sites-enabled/conf.d/calendar_kiosk.conf"
+        dest: "/etc/apache2/sites-enabled/conf.d/calendar-kiosk.conf"
       notify: "apache_restart"
 
     - name: "Install site_config"
@@ -55,7 +53,6 @@
         warn: "no"
       with_items:
         - "{{ calendar_kiosk_install_path }}"
-        - "{{ calendar_kiosk_backup_path  }}"
         - "{{ calendar_kiosk_site_home    }}"
 
     - name: "Update directory permission"
@@ -64,6 +61,5 @@
         warn: "no"
       with_items:
         - "{{ calendar_kiosk_install_path }}"
-        - "{{ calendar_kiosk_backup_path  }}"
         - "{{ calendar_kiosk_site_home    }}"
 ...
