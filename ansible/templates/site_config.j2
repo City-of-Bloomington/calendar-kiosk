@@ -1,11 +1,11 @@
 <?php
 /**
- * @copyright 2020 City of Bloomington, Indiana
+ * @copyright 2023 City of Bloomington, Indiana
  * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE
  */
 declare (strict_types=1);
 
-define('APPLICATION_NAME', 'Blossom');
+define('APPLICATION_NAME', 'Calendar Kiosk');
 
 /**
  * URL Generation settings
@@ -15,7 +15,7 @@ define('APPLICATION_NAME', 'Blossom');
  * If your site is being proxied, change BASE_HOST to the hostname
  * used for the outside world.
  */
-define('BASE_URI' , "{{ blossom_base_uri }}");
+define('BASE_URI' , "{{ calendar_kiosk_base_uri }}");
 define('BASE_HOST', isset($_SERVER['HTTP_X_FORWARDED_HOST'])
                         ? $_SERVER['HTTP_X_FORWARDED_HOST']
                         : "{{ ansible_host }}");
@@ -32,53 +32,14 @@ define('BASE_URL' , "https://".BASE_HOST.BASE_URI);
  */
 define('THEME', 'COB');
 
-/**
- * Database Setup
- */
-$DATABASES = [
-    'default' => [
-        'driver' => 'mysql',
-        'host'   => "{{ blossom_db.default.host }}",
-        'name'   => "{{ blossom_db.default.name }}",
-        'user'   => "{{ blossom_db.default.user }}",
-        'pass'   => "{{ blossom_db.default.pass }}",
-        'opts'   => []
-    ]
+define('GOOGLE_CREDENTIALS_FILE', __DIR__.'/credentials.json');
+define('GOOGLE_USER_EMAIL',  "{{ calendar_kiosk_google.user        }}");
+define('GOOGLE_CALENDAR_ID', "{{ calendar_kiosk_google.calendar_id }}");
+
+$LOCATION_MAP = [
+    // Google Calendar Resource   => Human Readable Location
+    {{ calendar_kiosk_location_map | indent(4) }}
 ];
-
-/**
- * Ldap Authentication Configuration
- *
- * This supports doing user authentication from multiple external
- * directories, such as LDAP or ADS. This is required since city staff
- * are in a seperate LDAP directory from public user accounts.
- * Classes that implement AuthenticationInterface should have an entry here.
- *
- * @see Domain\Auth
- */
-$LDAP = [
-    'Employee' => [
-        'classname'          => 'Site\Employee',
-        'server'             => "{{ blossom_ldap.server             }}",
-        'base_dn'            => "{{ blossom_ldap.base_dn            }}",
-        'username_attribute' => "{{ blossom_ldap.username_attribute }}",
-        'user_binding'       => "{{ blossom_ldap.user_binding       }}",
-        'admin_binding'      => "{{ blossom_ldap.admin_binding      }}",
-        'admin_pass'         => "{{ blossom_ldap.admin_pass         }}",
-    ]
-];
-
-/**
- * CAS authentication https://www.apereo.org/projects/cas
- *
- * https://github.com/apereo/phpCAS
- *
- * phpCAS is a PHP library for handling the calls to the CAS service
- * It is the official library, part of the Apereo CAS project
- */
-define('CAS_SERVER', "{{ blossom_cas_server }}");
-define('CAS_URI','cas');
-
 
 define('DATE_FORMAT',    'n/j/Y');
 define('TIME_FORMAT',    'g:i a');
