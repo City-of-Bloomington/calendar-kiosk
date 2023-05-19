@@ -16,6 +16,7 @@ class HomeView extends View
         GLOBAL $LOCATION_MAP;
         parent::__construct();
         
+        $meetings = [];
         foreach ($events as $e) {
             if ($e->start->dateTime) {
                 $allDay = false;
