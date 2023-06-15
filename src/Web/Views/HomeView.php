@@ -47,8 +47,8 @@ class HomeView extends View
                 'description' => $e->description,
                 'location'    => $location,
                 'zoomLink'    => $zoomLink,
-                'start'       => $eventStart->format('c'),
-                'end'         => $eventEnd  ->format('c'),
+                'start'       => $eventStart,
+                'end'         => $eventEnd,
                 'htmlLink'    => $e->htmlLink
             ];
         }

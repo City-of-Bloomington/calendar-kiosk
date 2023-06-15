@@ -9,22 +9,22 @@ body {
 }
 a { text-decoration: none; }
 
-body > header {
+   body > header,
+section > header{
     color: $color-header;
     background-color: $color-content-background;
     padding:  $size-gutter;
     text-align: center; overflow: auto;
 
     a      { color: $color-header; font-family: $font-family-nav; }
+    h1 { font-size: $font-size-biggest; }
     h1, h2 { margin: 0; text-align: center; }
     img    { display: none; }
 }
 
 section {
     background-color: $color-header;
-    border:        2px solid $color-divider;
     border-radius: $size-gutter;
-    box-shadow:    0 0.2rem 0.9rem 0 rgba(0, 0, 0, 0.05);
     margin-top:    2 * $size-gutter;
 }
 

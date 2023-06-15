@@ -4,14 +4,14 @@
  * @param array events
  * @see https://developers.google.com/calendar/api/v3/reference/events/list
 #}
-
 {% extends "html/layouts/default.twig" %}
 {% block content %}
+
 <section>
-{% for date, ids in events %}
-    {% for event_id, event in ids %}
+{% set today = 'now'|date('Y-m-d') %}
+{% for event_id, event in events[today] %}
     <article> 
-        <time datetime="{{ event.start }}">
+        <time datetime="{{ event.start | date('c') }}">
             <h2>
                 {{  event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
                 {% if event.end %}
@@ -28,7 +28,42 @@
             {% endif %}
         </p>
     </article>
-    {% endfor %}
 {% endfor %}
 </section>
+
+{% if events|length > 1 %}
+<section id="upcoming_events">
+    <header>
+        <h1>Upcoming Meetings</h1>
+    </header>
+{% for date, ids in events %}
+    {% if date != today %}
+        <header>
+            <h2>{{ date|date('l, F j') }}</h2>
+        </header>
+        {% for event_id, event in ids %}
+        <article>
+            <time datetime="{{ event.start | date('c') }}">
+                <h2>
+                    {{  event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
+                    {% if event.end %}
+                    to {{ event.end | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
+                    {% endif %}
+                </h2>
+            </time>
+            <header>
+                <h2>{{ event.summary }}</h2>
+            </header>
+            <p class="location">{{ event.location }}
+                {% if event.zoomLink %}
+                <a href="{{ event.zoomLink }}">Join Zoom</a>
+                {% endif %}
+            </p>
+        </article>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+</section>
+{% endif %}
+
 {% endblock %}
