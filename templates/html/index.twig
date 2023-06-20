@@ -23,11 +23,15 @@
         <header>
             <h2>{{ event.summary }}</h2>
         </header>
-        <p class="location">{{ event.location }}
+        {% if event.location is empty and 'ancel' not in event.summary %}
+        <p class="location missing">Undisclosed location</p>
+        {% else %}
+        <p class="location{% if event.location=='' %}{% endif %}">{{ event.location }}
             {% if event.zoomLink %}
             <a href="{{ event.zoomLink }}">Join Zoom</a>
             {% endif %}
         </p>
+        {% endif %}
     </article>
 {% endfor %}
 </section>
@@ -56,11 +60,15 @@
             <header>
                 <h2>{{ event.summary }}</h2>
             </header>
-            <p class="location">{{ event.location }}
+            {% if event.location is empty and 'ancel' not in event.summary %}
+            <p class="location missing">Undisclosed location</p>
+            {% else %}
+            <p class="location{% if event.location=='' %}{% endif %}">{{ event.location }}
                 {% if event.zoomLink %}
                 <a href="{{ event.zoomLink }}">Join Zoom</a>
                 {% endif %}
             </p>
+            {% endif %}
         </article>
         {% endfor %}
     {% endif %}

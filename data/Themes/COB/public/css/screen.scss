@@ -58,6 +58,7 @@ article:nth-child(even) {
 }
 
 p { margin-top: 0; }
+p.missing { font-weight: bold; background-color: $color-error; }
 
 $size-qrcode-width: 200px;
 $size-logo-height:  100px;
