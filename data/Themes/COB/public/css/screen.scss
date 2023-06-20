@@ -72,7 +72,7 @@ footer {
 }
 
 @media (width: 1080px) and (height: 1920px) {
-    body { overflow: hidden; }
+    body { height: 100%; overflow: hidden; }
 
     body > header {
         height: $size-qrcode-width;
@@ -94,6 +94,11 @@ footer {
             position: absolute; top: $size-logo-margin; right: $size-logo-margin;
         }
     }
+    #upcoming_meetings {
+        &::-webkit-scrollbar { display: none; }
+        overflow-y: scroll;
+    }
+
     article .location a { display: none; }
 
     footer {
