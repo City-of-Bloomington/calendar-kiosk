@@ -30,7 +30,5 @@ RUN apt-get install -y \
 
 WORKDIR /srv/sites/calendar-kiosk
 COPY --chown=www-data:staff . /srv/sites/calendar-kiosk
-COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
-
 EXPOSE 80
 ENTRYPOINT ["apachectl", "-D", "FOREGROUND"]
