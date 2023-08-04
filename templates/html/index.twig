@@ -24,7 +24,7 @@
             <h2>{{ event.summary }}</h2>
         </header>
         {% if event.location is empty and 'ancel' not in event.summary %}
-        <p class="location missing">Please Contact Board for Location!</p>
+        <p class="location missing">To be announced</p>
         {% else %}
         <p class="location{% if event.location=='' %}{% endif %}">{{ event.location }}
             {% if event.zoomLink %}
@@ -61,7 +61,7 @@
                 <h2>{{ event.summary }}</h2>
             </header>
             {% if event.location is empty and 'ancel' not in event.summary %}
-            <p class="location missing">Undisclosed location</p>
+            <p class="location missing">To be announced</p>
             {% else %}
             <p class="location{% if event.location=='' %}{% endif %}">{{ event.location }}
                 {% if event.zoomLink %}
