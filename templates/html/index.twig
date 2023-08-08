@@ -8,17 +8,16 @@
 {% block content %}
 
 {% set today = 'now'|date('Y-m-d') %}
-{% if events[today] is defined %}
 <section>
+    <header>
+        <h1>Today's Meetings</h1>
+        <h2 class="weekday">{{ "now"|date("l, F j") }}</h2>
+    </header>
+{% if events[today] is defined %}
 {% for event_id, event in events[today] %}
     <article> 
         <time datetime="{{ event.start | date('c') }}">
-            <h2>
-                {{  event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
-                {% if event.end %}
-                to {{ event.end | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
-                {% endif %}
-            </h2>
+            <h2>{{ event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}</h2>
         </time>
         <header>
             <h2>{{ event.summary }}</h2>
@@ -34,14 +33,17 @@
         {% endif %}
     </article>
 {% endfor %}
-</section>
+{% else %}
+    <p>No Meetings Today</p>
 {% endif %}
+</section>
 
 {% if events|length > 1 %}
-<section id="upcoming_meetings">
+<section>
     <header>
         <h1>Upcoming Meetings</h1>
     </header>
+    <div id="upcoming_meetings">
 {% for date, ids in events %}
     {% if date != today %}
         <header>
@@ -50,12 +52,7 @@
         {% for event_id, event in ids %}
         <article>
             <time datetime="{{ event.start | date('c') }}">
-                <h2>
-                    {{  event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
-                    {% if event.end %}
-                    to {{ event.end | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}
-                    {% endif %}
-                </h2>
+                <h2>{{ event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}</h2>
             </time>
             <header>
                 <h2>{{ event.summary }}</h2>
@@ -73,6 +70,7 @@
         {% endfor %}
     {% endif %}
 {% endfor %}
+    </div>
 </section>
 {% endif %}
 

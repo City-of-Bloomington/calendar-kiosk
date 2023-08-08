@@ -10,7 +10,8 @@ body {
 a { text-decoration: none; }
 
    body > header,
-section > header{
+section > header,
+    div > header {
     color: $color-header;
     background-color: $color-content-background;
     padding:  $size-gutter;
@@ -36,7 +37,9 @@ article {
     flex-wrap: wrap;
     align-items: flex-start; justify-content: space-around;
 
-    time, header, p { width: $size-viewport-mobile; }
+    time { width: 150px; }
+
+    header, p { width: $size-viewport-mobile; }
 }
 article:nth-child(even) {
     background-color: $color-table-background-alt;
