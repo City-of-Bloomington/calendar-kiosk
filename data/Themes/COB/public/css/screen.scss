@@ -23,10 +23,12 @@ section > header,
     img    { display: none; }
 }
 
+main { border-top: 2 * $size-gutter solid $color-header; }
+
 section {
     background-color: $color-header;
-    border-radius: $size-gutter;
-    margin-top:    2 * $size-gutter;
+    border-radius:  $size-gutter;
+    margin-top: 2 * $size-gutter;
 }
 
 article {
