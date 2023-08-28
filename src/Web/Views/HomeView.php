@@ -36,7 +36,7 @@ class HomeView extends View
             $location       = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $e->location ?? '');
             $matches        = [];
             $zoomLink       = "";
-            preg_match('/https:\/\/bloomington\.zoom\.us\/.\/\d+\?pwd=\w+/',$e->description??"",$matches);
+            preg_match('|https://\w+\.zoom\.us/./\d+(\?pwd=\w+)?|',$e->description??"",$matches);
             if  ($matches) {
                 $zoomLink = $matches[0];
             }
