@@ -32,15 +32,19 @@ class HomeView extends View
             $date     = $eventStart->format('Y-m-d');
             $event_id = $e->id;
 
-            //$location
-            $location       = (str_contains($e->summary, 'ancel'))
-                            ? ''
-                            : preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $e->location ?? '');
             $matches        = [];
-            $zoomLink       = "";
-            preg_match('|https://\w+\.zoom\.us/./\d+(\?pwd=\w+)?|',$e->description??"",$matches);
-            if  ($matches) {
-                $zoomLink = $matches[0];
+            $zoomLink       = '';
+            $cancelled      = false;
+            if (str_contains(strtolower($e->summary), 'ancel')) {
+                $location  = '';
+                $cancelled = true;
+            }
+            else {
+                $location = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $e->location ?? '');
+                preg_match('|https://\w+\.zoom\.us/./\d+(\?pwd=\w+)?|',$e->description??"",$matches);
+                if  ($matches) {
+                    $zoomLink = $matches[0];
+                }
             }
 
             $meetings[$date][$event_id] = [
@@ -51,7 +55,8 @@ class HomeView extends View
                 'zoomLink'    => $zoomLink,
                 'start'       => $eventStart,
                 'end'         => $eventEnd,
-                'htmlLink'    => $e->htmlLink
+                'htmlLink'    => $e->htmlLink,
+                'cancelled'   => $cancelled
             ];
         }
         $this->vars = ['events' => $meetings];

@@ -15,17 +15,17 @@
     </header>
 {% if events[today] is defined %}
 {% for event_id, event in events[today] %}
-    <article> 
+    <article>
         <time datetime="{{ event.start | date('c') }}">
             <h2>{{ event.start | date('g:i a') | replace({'am':'a.m.', 'pm':'p.m.'}) }}</h2>
         </time>
         <header>
             <h2>{{ event.summary }}</h2>
         </header>
-        {% if event.location is empty and 'ancel' not in event.summary %}
+        {% if event.location is empty and not event.cancelled %}
         <p class="location missing">To be announced</p>
         {% else %}
-        <p class="location{% if event.location=='' %}{% endif %}">{{ event.location }}
+        <p class="location">{{ event.location }}
             {% if event.zoomLink %}
             <a href="{{ event.zoomLink }}">Join Zoom</a>
             {% endif %}
@@ -57,10 +57,10 @@
             <header>
                 <h2>{{ event.summary }}</h2>
             </header>
-            {% if event.location is empty and 'ancel' not in event.summary %}
+            {% if event.location is empty and not event.cancelled %}
             <p class="location missing">To be announced</p>
             {% else %}
-            <p class="location{% if event.location=='' %}{% endif %}">{{ event.location }}
+            <p class="location">{{ event.location }}
                 {% if event.zoomLink %}
                 <a href="{{ event.zoomLink }}">Join Zoom</a>
                 {% endif %}
