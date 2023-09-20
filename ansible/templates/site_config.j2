@@ -56,5 +56,5 @@ define('PAGINATION_ITEMS_PER_PAGE', 20);
  * This is handy for notifying developers of a problem before users notice.
  ** @see https://graylog.org
  */
-// define('GRAYLOG_DOMAIN', 'graylog.example.org');
-// define('GRAYLOG_PORT',   12200);
+define('GRAYLOG_DOMAIN', '{{ calendar_kiosk_graylog.domain }}');
+define('GRAYLOG_PORT',    {{ calendar_kiosk_graylog.port   }});
