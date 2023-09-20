@@ -25,7 +25,8 @@ class HomeController extends Controller
             $start = new \DateTime('midnight');
         }
 
-        $end    = new \DateTime('+1 week');
+        $end    = clone($start);
+        $end->add(new \DateInterval('P1W'));
         $events = GoogleGateway::events(GOOGLE_CALENDAR_ID, $start, $end);
 
         return new Views\HomeView($events, $start);
