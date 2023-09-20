@@ -11,7 +11,7 @@ use Web\View;
 
 class HomeView extends View
 {
-    public function __construct(Events $events)
+    public function __construct(Events $events, \DateTime $effectiveDate)
     {
         GLOBAL $LOCATION_MAP;
         parent::__construct();
@@ -59,7 +59,10 @@ class HomeView extends View
                 'cancelled'   => $cancelled
             ];
         }
-        $this->vars = ['events' => $meetings];
+        $this->vars = [
+            'effectiveDate' => $effectiveDate,
+            'events'        => $meetings
+        ];
     }
 
     public function render(): string

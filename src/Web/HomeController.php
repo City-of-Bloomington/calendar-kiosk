@@ -13,10 +13,21 @@ class HomeController extends Controller
 {
     public function __invoke(array $params): View
     {
-        $start  = new \DateTime('midnight');
+        if (!empty($_GET['date'])) {
+            try {
+                $start = new \DateTime($_GET['date']);
+            }
+            catch (\Exception $e) {
+                $start = new \DateTime('midnight');
+            }
+        }
+        else {
+            $start = new \DateTime('midnight');
+        }
+
         $end    = new \DateTime('+1 week');
         $events = GoogleGateway::events(GOOGLE_CALENDAR_ID, $start, $end);
 
-        return new Views\HomeView($events);
+        return new Views\HomeView($events, $start);
     }
 }

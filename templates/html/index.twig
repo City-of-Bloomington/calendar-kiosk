@@ -1,17 +1,25 @@
 {#
  * @copyright 2023 City of Bloomington, Indiana
  * @license https://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE
- * @param array events
+ *
+ * @param DateTime effectiveDate
+ * @param array    events
  * @see https://developers.google.com/calendar/api/v3/reference/events/list
 #}
 {% extends "html/layouts/default.twig" %}
 {% block content %}
 
-{% set today = 'now'|date('Y-m-d') %}
-<section>
+{% set today = effectiveDate|date('Y-m-d') %}
+<section id="todays_meetings">
     <header>
         <h1>Today's Meetings</h1>
-        <h2 class="weekday">{{ "now"|date("l, F j") }}</h2>
+        <h2 class="weekday">{{ effectiveDate|date("l, F j") }}</h2>
+        <form>
+            <fieldset>
+                <input name="date" type="date" value="{{ effectiveDate|date('Y-m-d') }}"
+                       onchange="this.form.submit();" />
+            </fieldset>
+        </form>
     </header>
 {% if events[today] is defined %}
 {% for event_id, event in events[today] %}

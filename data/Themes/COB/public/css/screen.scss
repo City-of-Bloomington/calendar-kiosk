@@ -8,6 +8,7 @@ body {
 
 }
 a { text-decoration: none; }
+fieldset { border: none; }
 
    body > header,
 section > header,
@@ -100,6 +101,7 @@ footer {
             position: absolute; top: $size-logo-margin; right: $size-logo-margin;
         }
     }
+    #todays_meetings form { display: none; }
     #upcoming_meetings {
         &::-webkit-scrollbar { display: none; }
         overflow-y: scroll;
