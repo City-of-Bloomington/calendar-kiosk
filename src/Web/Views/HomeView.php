@@ -15,7 +15,7 @@ class HomeView extends View
     {
         GLOBAL $LOCATION_MAP;
         parent::__construct();
-        
+
         $meetings = [];
         foreach ($events as $e) {
             if ($e->start->dateTime) {
@@ -31,9 +31,11 @@ class HomeView extends View
 
             $date     = $eventStart->format('Y-m-d');
             $event_id = $e->id;
-            
+
             //$location
-            $location       = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $e->location ?? '');
+            $location       = (str_contains($e->summary, 'ancel'))
+                            ? ''
+                            : preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $e->location ?? '');
             $matches        = [];
             $zoomLink       = "";
             preg_match('|https://\w+\.zoom\.us/./\d+(\?pwd=\w+)?|',$e->description??"",$matches);
@@ -54,6 +56,7 @@ class HomeView extends View
         }
         $this->vars = ['events' => $meetings];
     }
+
     public function render(): string
     {
         return $this->twig->render("{$this->outputFormat}/index.twig", $this->vars);
