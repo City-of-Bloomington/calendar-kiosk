@@ -35,13 +35,17 @@ class HomeView extends View
             $matches        = [];
             $zoomLink       = '';
             $cancelled      = false;
-            if (str_contains(strtolower($e->summary), 'ancel')) {
+
+            $summary        = $e->summary     ?? '';
+            $location       = $e->location    ?? '';
+            $description    = $e->description ?? '';
+            if (str_contains(strtolower($summary), 'ancel')) {
                 $location  = '';
                 $cancelled = true;
             }
             else {
-                $location = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $e->location ?? '');
-                preg_match('|https://\w+\.zoom\.us/./\d+(\?pwd=\w+)?|',$e->description??"",$matches);
+                $location = preg_replace(array_keys($LOCATION_MAP), array_values($LOCATION_MAP), $location);
+                preg_match('|https://\w+\.zoom\.us/./\d+(\?pwd=\w+)?|', $description, $matches);
                 if  ($matches) {
                     $zoomLink = $matches[0];
                 }
@@ -49,8 +53,8 @@ class HomeView extends View
 
             $meetings[$date][$event_id] = [
                 'eventId'     => $e->id,
-                'summary'     => $e->summary,
-                'description' => $e->description,
+                'summary'     => $summary,
+                'description' => $description,
                 'location'    => $location,
                 'zoomLink'    => $zoomLink,
                 'start'       => $eventStart,
