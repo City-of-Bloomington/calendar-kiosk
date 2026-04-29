@@ -1,6 +1,6 @@
 {
     "require": {
-        "php": ">=8",
+        "php": ">=8.3",
         "aura/di":                         "@stable",
         "aura/router":                     "@stable",
         "aura/sqlquery":                   "@stable",
@@ -9,7 +9,6 @@
         "guzzlehttp/guzzle":               "@stable",
         "graylog2/gelf-php":               "^1",
         "jumbojett/openid-connect-php":    "@stable",
-        "laminas/laminas-log":             "@stable",
         "laminas/laminas-permissions-acl": "@stable",
         "twig/twig":                       "@stable"
     },
