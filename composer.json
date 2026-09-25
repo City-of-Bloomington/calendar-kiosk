@@ -1,11 +1,17 @@
 {
     "require": {
         "php": ">=8.5",
-        "aura/router":                     "@stable",
-        "google/apiclient":                "@stable",
-        "guzzlehttp/guzzle":               "@stable",
-        "graylog2/gelf-php":               "^1",
-        "twig/twig":                       "@stable"
+        "aura/router":       "@stable",
+        "google/apiclient":  "@stable",
+        "guzzlehttp/guzzle": "@stable",
+        "graylog2/gelf-php": "^1",
+        "twig/twig":         "@stable"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": ["Calendar"]
     },
     "require-dev": {
         "phpstan/phpstan": "@stable"

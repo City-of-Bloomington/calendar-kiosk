@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright 2023 City of Bloomington, Indiana
+ * @copyright 2023-2026 City of Bloomington, Indiana
  * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE
  */
 declare (strict_types=1);
@@ -25,10 +25,10 @@ class HomeController extends Controller
             $start = new \DateTime('midnight');
         }
 
-        $end    = clone($start);
+        $end = clone($start);
         $end->add(new \DateInterval('P1W'));
-        $events = GoogleGateway::events(GOOGLE_CALENDAR_ID, $start, $end);
+        $res = GoogleGateway::events(GOOGLE_CALENDAR_ID, $start, $end);
 
-        return new Views\HomeView($events, $start);
+        return new Views\HomeView($res['events'], $start);
     }
 }

@@ -1,17 +1,16 @@
 <?php
 /**
- * @copyright 2023 City of Bloomington, Indiana
+ * @copyright 2023-2026 City of Bloomington, Indiana
  * @license https://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE
  */
 declare (strict_types=1);
 namespace Web\Views;
 
-use Google\Service\Calendar\Events;
 use Web\View;
 
 class HomeView extends View
 {
-    public function __construct(Events $events, \DateTime $effectiveDate)
+    public function __construct(array $events, \DateTime $effectiveDate)
     {
         GLOBAL $LOCATION_MAP;
         parent::__construct();
