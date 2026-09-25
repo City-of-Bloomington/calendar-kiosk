@@ -4,7 +4,7 @@
         "aura/router":       "@stable",
         "google/apiclient":  "@stable",
         "guzzlehttp/guzzle": "@stable",
-        "graylog2/gelf-php": "^1",
+        "graylog2/gelf-php": "@stable",
         "twig/twig":         "@stable"
     },
     "scripts": {
