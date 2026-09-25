@@ -1,0 +1,7 @@
+parameters:
+  bootstrapFiles:
+    - src/Test/bootstrap.php
+  dynamicConstantNames:
+    GRAYLOG_DOMAIN: string
+  paths:
+    - src/Web

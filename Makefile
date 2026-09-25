@@ -29,7 +29,7 @@ compile:
 	for f in ${JAVASCRIPT}; do cp $$f $${f%.js}-${VERSION}.js; done
 
 test:
-	vendor/phpunit/phpunit/phpunit -c src/Test/Unit.xml
+	vendor/bin/phpstan analyse -l 5
 
 package:
 	[[ -d build ]] || mkdir build
