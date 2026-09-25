@@ -1,15 +1,10 @@
 {
     "require": {
-        "php": ">=8.3",
-        "aura/di":                         "@stable",
+        "php": ">=8.5",
         "aura/router":                     "@stable",
-        "aura/sqlquery":                   "@stable",
-        "apereo/phpcas":                   "@stable",
         "google/apiclient":                "@stable",
         "guzzlehttp/guzzle":               "@stable",
         "graylog2/gelf-php":               "^1",
-        "jumbojett/openid-connect-php":    "@stable",
-        "laminas/laminas-permissions-acl": "@stable",
         "twig/twig":                       "@stable"
     },
     "require-dev": {

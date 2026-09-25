@@ -28,9 +28,7 @@ include SITE_HOME.'/site_config.php';
 $loader = require APPLICATION_HOME.'/vendor/autoload.php';
 $loader->addPsr4('Site\\', SITE_HOME.'/src');
 
-include APPLICATION_HOME.'/src/Web/container.php';
 include APPLICATION_HOME.'/src/Web/routes.php';
-include APPLICATION_HOME.'/src/Web/access_control.php';
 
 if (defined('GRAYLOG_DOMAIN') && defined('GRAYLOG_PORT')) {
     $graylog = new \Web\GraylogWriter(GRAYLOG_DOMAIN, GRAYLOG_PORT);

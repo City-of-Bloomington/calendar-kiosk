@@ -1,20 +1,16 @@
 <?php
 /**
- * @copyright 2019 City of Bloomington, Indiana
+ * @copyright 2019-2026 City of Bloomington, Indiana
  * @license http://www.gnu.org/licenses/agpl.txt GNU/AGPL, see LICENSE
  */
 declare (strict_types=1);
 namespace Web;
 
-use Aura\Di\Container;
-
 class Controller
 {
     protected const ITEMS_PER_PAGE = 20;
-    protected $di;
 
-    public function __construct(Container $container)
+    public function __construct()
     {
-        $this->di = $container;
     }
 }
